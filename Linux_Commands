@@ -1,0 +1,73 @@
+[eaauser@localhost ~]$ grep "processor" /proc/cpuinfo
+processor	: 0
+processor	: 1
+[eaauser@localhost ~]$ man wc
+[eaauser@localhost ~]$ grep "processor" /proc/cpuinfo | wc
+      2       6      28
+[eaauser@localhost ~]$ grep "processor" /proc/cpuinfo | wc -l
+2
+[eaauser@localhost ~]$ 
+
+
+ls = list
+cd = change directory
+
+Permissions:
+d| rwx |  rwx  |  rwx |
+d|  me | group | other|
+i
+r
+e
+c
+t
+o
+r
+y
+
+r = read
+w = write
+e = executeh
+
+history: audit, examining the history of commands in the shell
+
+  then
+
+! and number of command
+
+copy full command from history: highlight command and click mouse roller.
+
+
+********************************************************
+Directory structure
+
+			/root
+/bin			/home			/lib
+			/eaauser
+	
+
+change execute permissions: chmod +x firstscript.sh
+
+remove directory/file: rmdir week2
+
+Copy directory recursively: cp -R Documents/ Backup/
+
+Delete directory with contents: rm -r dir_name/
+
+Copy directory add date stamp: cp -R $1/ $(date +%Y%m%d_%H%M%S)$1_Backup
+
+Create tar backup file: tar cfv backup.tar /etc/*.conf
+
+********************************************************
+Changing to Root: su -
+Password: eaa2016
+
+ 
+Clone git repo: git clone https://github.com.Paul-Kenny/EAA.Comp.2016
+
+********************************************************
+Print "Hello" and command-line argument: printf "Hello, %s!/n" "$1"
+
+
+
+
+
