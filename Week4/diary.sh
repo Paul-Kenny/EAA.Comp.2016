@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash
 
 echo "Write diary entry: "
 read line

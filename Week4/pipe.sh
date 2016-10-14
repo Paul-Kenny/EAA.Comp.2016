@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash
 
 ps 	#provides information of the CURRENT running processes (process status)
 -ef 	#expands the ps to include ALL the processes on the system
