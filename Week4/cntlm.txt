@@ -1,0 +1,3 @@
+
+
+root 1302 897 0 08:58 ? 00:00:00 gdm-session-worker [pam/gdm-launch-environment] root 1642 897 0 08:59 ? 00:00:00 gdm-session-worker [pam/gdm-password]
