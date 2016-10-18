@@ -1,3 +1,4 @@
+[eaauser@localhost ~]$ more /proc/cpuinfo
 [eaauser@localhost ~]$ grep "processor" /proc/cpuinfo
 processor	: 0
 processor	: 1
