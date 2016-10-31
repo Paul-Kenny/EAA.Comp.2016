@@ -27,7 +27,7 @@ y
 
 r = read
 w = write
-e = executeh
+e = execute
 
 history: audit, examining the history of commands in the shell
 
@@ -54,7 +54,24 @@ Copy directory recursively: cp -R Documents/ Backup/
 
 Delete directory with contents: rm -r dir_name/
 
+******************************************************
 Copy directory add date stamp: cp -R $1/ $(date +%Y%m%d_%H%M%S)$1_Backup
+
+#copy one directory to another and change the name to datestamp
+echo Copying directory $2 to directory $1
+#Source first - Destination second
+cp -r $2 $1$(date +%F_%T)
+
+********************************************************
+
+#copy one directory to another and change the name to datestamp
+echo Taring directory $2 to directory $1
+#Opposite to copying - Destination is first, source
+tar -cvf $1$(date +%F_%T) $2  
+
+********************************************************
+
+Alternative Date format: $(date +%F_%T)
 
 Create tar backup file: tar cfv backup.tar /etc/*.conf
 
@@ -65,9 +82,83 @@ Password: eaa2016
  
 Clone git repo: git clone https://github.com.Paul-Kenny/EAA.Comp.2016
 
+Pushing changes to GitHub: 
+	git pull
+	git status
+	git add *
+	git commit -m "message"
+	git push
+
 ********************************************************
 Print "Hello" and command-line argument: printf "Hello, %s!/n" "$1"
 
+********************************************************
+
+If statement: 
+
+#Test if directory exists
+if [ ! -d $1 ]; then
+	mkdir $1
+fi
+
+********************************************************
+
+If Else statement
+
+if [ -d "/home/eaauser/logs" ]; then 
+	echo "logs exists"
+	if [ ! -w "/home/eaauser/logs" ]; then
+	chmod +w /home/eaauser/logs
+	fi
+else
+	echo "Log directory does not exist; creating directory."
+	if [ ! -w "/home/eaauser/logs" ]; then
+	mkdir /home/eaauser/logs
+	chmod +w /home/eaauser/logs
+	fi
+fi
+
+*****************************************************************
+
+printf "Hello, %s!\n" $1
+
+***********************************************************
+
+#Execute the Lab3.sh script using "source" command
+source /home/eaauser/EAA.Comp.2016/Week3/Lab3.sh Paul
+
+#Execute the Lab3.sh script using "." (aka source) command
+. /home/eaauser/EAA.Comp.2016/Week3/Lab3.sh Paul
+
+**********************************************************
+
+#Lists all the files in the argument directory then counts the files.
+#Finally displays the count to the user in the console.
+echo "The $1 directory contains " $(ls $1 | wc -l) " files"
+
+**********************************************************
+
+#Append the result of the piped command to a file called "cntlm.txt". The result will contain all the processes on the system that are listed in the "ps -ef" command containing the string "cntlm".  
+
+echo $(ps -ef | grep gdm-session-worker | grep root) >> cntlm.txt
+
+********************************************************
+
+echo "Write diary entry: "
+#Read one command line input and place it into the variable var
+read var
+#Append command line input (var), with date stamp, to diary.txt
+echo "$var" $(date +%F_%T) >> ./diary.txt
+
+*********************************************************
+
+#"ps -ef" lists all currently running processes to the terminal
+#"|" = pipe command. Take standard output from the preceeding command and feeds it to the following command
+#"grep mysql" The grep command looks for the string "mysql" in the input it was fed by the pipe command
+#The full command below will look for the string "mysql" in the running processes list and display all instances of it to the terminal
+ps -ef | grep mysql
+
+***********************************************************
 
 
 
